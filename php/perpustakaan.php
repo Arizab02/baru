@@ -1,22 +1,6 @@
 <?php
-class Perpustakaan extends buku{
-    private $data=[];
-    function setbuku(){
-        // memasukkan data buku ke array data
-        $this->data[] = $this->buku;
-        echo "Data sudah berhasil diset";
-        $i = 0;
-        foreach($this->data as $isi){
-            foreach($isi as $satuan){
-                print_r($satuan);
-                echo "$i. $satuan";
-                $i++;
-            }
-        }
-    }
-}
-
 class buku{
+    protected $data=[];
     protected $buku =[];
 
     public string $nama,
@@ -29,21 +13,51 @@ class buku{
         $this->tambah($nama, $penulis, $genre, $tebal, $tahun);
     }
     function tambah($nama, $penulis, $genre, $tebal, $tahun){
+        $this->buku["nama"] = $nama;
         $this->buku["penulis"] = $penulis;
         $this->buku["genre"] = $genre;
         $this->buku["tebal"] = $tebal;
         $this->buku["tahun"] = $tahun;
-        $this->buku["nama"] = $nama;
         return $this->buku;
+    }
+
+    function setBuku(){
+        $this->data[] = $this->buku;
+        sleep(1);
+        echo "Data sudah berhasil diset \n";
     }
 
 
     function tampil(){
-        var_dump($this->buku);
+        echo"\n";
+        foreach($this->data as $key => $value){
+            sleep(1);
+            echo "Buku index [$key]\n";
+            foreach($value as $key2 => $value2){
+                echo "  - $key2 : $value2\n";
+            }
         }
     }
 
-    function hapus(){}
+    function raw(){
+        print_r($this->data);
+    }
+    function hapusBuku($index){
+        // sleep(1);
+        echo "\nBuku index ke $index akan dihapus\n";
+        // array_slice($this->data,$index,1);
+        unset($this->data,$index);
+        print_r($this->data);
+        // sleep(1);
+        $hapus = "Data behasil dihapus...\n";
+        // for($i=0;$i < count(str_split($hapus));$i++){
+        //     echo "$hapus[$i]";
+        //     sleep(1);
+        // }
+        $this->tampil();
+        echo "$hapus \n";
+    }
+}
 
 
 class angota{
@@ -54,7 +68,17 @@ class Login{
 
 }
 
-$perpustakaan = new perpustakaan("Axio","Err Naila", "Fiksi",600,2011);
-$buku = new buku("nama", "penulis", "genre", 600, 2019);
-$buku->tampil();
+// $buku->tampil();
+$perpustakaan = new buku("Axio","Err Naila", "Fiksi",600,2011);
 $perpustakaan->setbuku();
+// $perpustakaan->tampil();
+$perpustakaan->tambah("Hari hari","terre lain","Fiksi",4053,2025);
+$perpustakaan->setbuku();
+$perpustakaan->tambah("nama", "penulis", "genre", 600, 2019);
+$perpustakaan->setbuku();
+$perpustakaan->tampil();
+$perpustakaan->tambah("Halo","tere lain","Fiksi",6000,2021);
+$perpustakaan->setBuku();// masukkin ke array data
+$perpustakaan->tampil();
+// $perpustakaan->raw();
+$perpustakaan->hapusBuku(1);
