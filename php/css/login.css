@@ -1,0 +1,41 @@
+body{
+    width:100%;
+    background-color:rgb(88,120,225);             
+}
+.login{
+    margin:30px auto;
+    background-color: white;
+    width:20em;
+    height:30em;
+    border-radius: 20px;
+    box-shadow:0 0 8px 32px rgba(0, 0, 0, 0, 0.37);
+    }
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:2em;
+    padding:auto;
+    flex: space-between;
+}
+.input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+}
+input{
+    padding:10px 30px;
+    background-color: beige;
+    color: grey;
+    border-radius: 20px;
+    border:none;
+}
+button{
+    padding:10px 30px;
+    background-color: rgb(90, 120, 252);
+    color: white;
+    border-radius: 20px;
+    border:none;}
