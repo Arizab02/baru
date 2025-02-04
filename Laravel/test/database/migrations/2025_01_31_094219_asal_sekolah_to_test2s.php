@@ -11,7 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::table('test2s', function (Blueprint $table) {
+            $table->string('asal_sekolah')->nullable();
+        });
     }
 
     /**
@@ -19,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('test2s', function (Blueprint $table) {
+            //
+        });
     }
 };
