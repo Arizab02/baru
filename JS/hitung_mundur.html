@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung Mundur</title>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="judul" id="judul">Hitung Mundur</div>
+        <div class="angka" id="angka">nomor</div>
+        <button id="tombol" class="tombol" onclick="hitung()">Click Aku!</button>
+        <button id="tombol" class="tombol" onclick="ulangi()">Ulangi</button>
+    </div>
+    <script>
+        let angka = 10;
+        let angkaReset = angka;
+        const nomor = document.getElementById("angka").textContent = angka;
+        
+        function hitung() {
+                console.log("Check log 1");
+                document.getElementById("angka").innerText = angka;
+                console.log("Check log 2");
+                angka--;
+                console.log("Check log 3");
+                if (angka < 0) {
+                    angka = 0;
+                    let tambahan = document.createElement("p");
+                    document.getElementById("angka").appendChild(tambahan).textContent = "Sudah habis angkanya";
+                }
+            }
+        
+            function ulangi() {
+                angka = angkaReset;
+                document.getElementById("angka").innerText = angka;
+            }
+    </script>
+    <style>
+        
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            padding: 10%;
+            width:  -moz-available -moz-available   max-content;
+        }
+        .container {
+            text-align: center;
+            padding: 10%;
+            margin: auto;
+            background-color: #fff;  
+            border-radius: 15px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        .tombol {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            border-radius: 15px;
+            transition: all 0.8s;
+        }
+        .tombol:hover {
+            background-color: #5bca5f;
+            box-shadow: 0 12px 8px 0 rgba(0,0,0,0.10), 0 15px 30px 0 rgba(0,0,0,0.19);
+        }
+        .judul {
+            font-size: 30px;
+        }
+        .angka {
+            font-size: 10em;
+            color: red;
+        }
+        .angka p {
+            font-size: small;
+        }
+    
+    </style>
+</body>
+</html>
